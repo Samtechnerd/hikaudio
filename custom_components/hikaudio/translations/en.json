@@ -1,0 +1,77 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HikAudio for intercoms",
+        "description": "Connect to the HikAudio add-on. It finds your Hikvision door stations by itself. Use the same token you set in the add-on options.",
+        "data": {
+          "url": "Add-on address",
+          "token": "Token",
+          "ha_url": "Home Assistant address"
+        },
+        "data_description": {
+          "url": "For example http://192.168.2.112:8765",
+          "ha_url": "Must match the Home Assistant address in the add-on options"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the HikAudio add-on. Check it is running and the address is right.",
+      "invalid_auth": "The add-on rejected the token.",
+      "no_devices": "The add-on has no door stations configured."
+    },
+    "abort": {
+      "already_configured": "This add-on is already set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "HikAudio settings",
+        "data": {
+          "max_gain": "Maximum volume boost (volume slider at 100 percent)",
+          "max_seconds": "Longest music clip in seconds (speech is not cut)",
+          "tts_entity": "Text-to-speech engine for the test button and say service",
+          "test_message": "Test announcement message"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "test_announcement": {
+        "name": "Test announcement"
+      }
+    },
+    "sensor": {
+      "last_announcement": {
+        "name": "Last announcement"
+      }
+    },
+    "binary_sensor": {
+      "online": {
+        "name": "Online"
+      }
+    }
+  },
+  "services": {
+    "say": {
+      "name": "Say",
+      "description": "Speak a message on one or more HikAudio door stations.",
+      "fields": {
+        "message": {
+          "name": "Message",
+          "description": "The text to speak."
+        },
+        "entity_id": {
+          "name": "Door stations",
+          "description": "The HikAudio media players to speak on."
+        },
+        "tts_entity": {
+          "name": "Text-to-speech engine",
+          "description": "Defaults to the engine in the integration options."
+        }
+      }
+    }
+  }
+}

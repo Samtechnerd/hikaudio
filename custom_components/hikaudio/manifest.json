@@ -1,0 +1,12 @@
+{
+  "domain": "hikaudio",
+  "name": "HikAudio",
+  "version": "1.5.0",
+  "config_flow": true,
+  "documentation_url": "https://www.home-assistant.io/",
+  "dependencies": ["media_source"],
+  "codeowners": [],
+  "requirements": [],
+  "iot_class": "local_polling",
+  "integration_type": "hub"
+}

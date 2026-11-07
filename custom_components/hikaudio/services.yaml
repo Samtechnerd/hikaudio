@@ -1,0 +1,21 @@
+say:
+  fields:
+    message:
+      required: true
+      example: "Please leave the parcel by the door"
+      selector:
+        text:
+    entity_id:
+      required: true
+      selector:
+        entity:
+          filter:
+            domain: media_player
+            integration: hikaudio
+          multiple: true
+    tts_entity:
+      required: false
+      selector:
+        entity:
+          filter:
+            domain: tts

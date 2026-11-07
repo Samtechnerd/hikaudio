@@ -1,0 +1,5 @@
+# Hikvision SDK and compiled helpers are not redistributed here
+addon/hiksdk/
+addon/voice_say
+addon/voice_live
+__pycache__/

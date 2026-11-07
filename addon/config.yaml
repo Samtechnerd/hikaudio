@@ -1,0 +1,48 @@
+name: "HikAudio"
+version: "1.5.0"
+slug: gate_talk
+description: >-
+  HikAudio for intercoms: plays text-to-speech and other audio through the speaker
+  of one or more Hikvision door stations (voice talk via the Hikvision SDK).
+  Unofficial, not affiliated with Hikvision.
+arch:
+  - amd64
+startup: application
+boot: auto
+init: false
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:doorbell-video
+panel_title: HikAudio
+options:
+  token: ""
+  ha_url: "http://192.168.2.112:8123"
+  devices:
+    - name: "gate"
+      host: "192.168.2.48"
+      port: 8000
+      user: "admin"
+      password: ""
+      channel: 1
+    - name: "front_door"
+      host: "192.168.2.72"
+      port: 8000
+      user: "admin"
+      password: ""
+      channel: 1
+schema:
+  token: password
+  ha_url: str
+  devices:
+    - name: str
+      host: str
+      port: port
+      user: str
+      password: password
+      channel: int
+      rtsp_path: str?
+      rtsp_port: port?
+ports:
+  8765/tcp: 8765
+ports_description:
+  8765/tcp: "HikAudio service (called by Home Assistant)"
